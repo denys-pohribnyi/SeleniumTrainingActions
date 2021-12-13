@@ -1,8 +1,26 @@
 package tasks;
 
-public class TaskA {
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import pages.Task1ShopDemoQAPage;
+
+public class TaskA extends BaseTest{
+    private Task1ShopDemoQAPage task1ShopDemoQAPage;
+
+    @BeforeMethod
+    public void setUp(){
+        task1ShopDemoQAPage = new Task1ShopDemoQAPage(getDriver());
+    }
+    @Test
+    public void titleTest(){
+        openURL("https://shop.demoqa.com/");
+        task1ShopDemoQAPage
+                .getAndPrintTitle()
+                .getPrintVerifyURL("https://shop.demoqa.com/")
+                .getLengthOfPageSource();
+    }
 }
-//А.
+//А.  https://shop.demoqa.com/
 //1. Launch a new Chrome browser.
 //2. Open Shop.DemoQA.com
 //3. Get Page Title name and Title length
