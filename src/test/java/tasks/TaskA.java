@@ -4,15 +4,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.Task1ShopDemoQAPage;
 
-public class TaskA extends BaseTest{
+public class TaskA extends BaseTest {
     private Task1ShopDemoQAPage task1ShopDemoQAPage;
 
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
         task1ShopDemoQAPage = new Task1ShopDemoQAPage(getDriver());
     }
+
     @Test
-    public void titleTest(){
+    public void titleTest() {
         openURL("https://shop.demoqa.com/");
         task1ShopDemoQAPage
                 .getAndPrintTitle()
