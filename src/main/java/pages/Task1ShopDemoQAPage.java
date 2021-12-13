@@ -4,14 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class Task1ShopDemoQAPage {
+public class Task1ShopDemoQAPage extends BasePage{
     private final WebDriver driver;
 
     public Task1ShopDemoQAPage(WebDriver driver){
         this.driver = driver;
     }
-    private final By title = By.xpath("");
-
 
     public Task1ShopDemoQAPage getAndPrintTitle (){
         String title = driver.getTitle();
