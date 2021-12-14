@@ -2,10 +2,14 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class Task1ShopDemoQAPage extends BasePage {
     private final WebDriver driver;
+
+    private final By loadingSpinner = By.xpath("//*[@id=\"rev_slider_4_1\"]/div[2]");
 
     public Task1ShopDemoQAPage(WebDriver driver) {
         this.driver = driver;
@@ -27,6 +31,10 @@ public class Task1ShopDemoQAPage extends BasePage {
     }
 
     public Task1ShopDemoQAPage getLengthOfPageSource() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(loadingSpinner)));
+        wait.until(ExpectedConditions.invisibilityOf(driver.findElement(loadingSpinner)));
+
         String pageSource = driver.getPageSource();
         int pageSourceLength = pageSource.length();
         System.out.println("Page source length is: " + pageSourceLength);

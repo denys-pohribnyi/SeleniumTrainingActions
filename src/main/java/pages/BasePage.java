@@ -14,10 +14,9 @@ public class BasePage {
         return element;
     }
 
-    public WebElement waitVisible(WebElement element) {
+    public void waitTillPageIsDownloaded(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.visibilityOf(element));
-        return element;
+        wait.until(ExpectedConditions.invisibilityOf(element));
     }
-
 }
