@@ -1,6 +1,25 @@
 package tasks;
 
-public class TaskE {
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import pages.TaskEDemoQAPage;
+
+public class TaskE extends BaseTest {
+    TaskEDemoQAPage taskEDemoQAPage;
+
+    @BeforeMethod
+    public void setUp() {
+        taskEDemoQAPage = new TaskEDemoQAPage(getDriver());
+    }
+
+    @Test
+    public void framesTest() {
+        openURL("https://demoqa.com/frames");
+        taskEDemoQAPage
+                .switchingFirstFrame()
+                .switchingDefaultContent()
+                .switchingSecondFrame();
+    }
 }
 //E.
 //1. Open https://demoqa.com/frames

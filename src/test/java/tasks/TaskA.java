@@ -2,20 +2,20 @@ package tasks;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.Task1ShopDemoQAPage;
+import pages.TaskADemoQAPage;
 
 public class TaskA extends BaseTest {
-    private Task1ShopDemoQAPage task1ShopDemoQAPage;
+    private TaskADemoQAPage taskADemoQAPage;
 
     @BeforeMethod
     public void setUp() {
-        task1ShopDemoQAPage = new Task1ShopDemoQAPage(getDriver());
+        taskADemoQAPage = new TaskADemoQAPage(getDriver());
     }
 
     @Test
     public void titleTest() {
         openURL("https://shop.demoqa.com/");
-        task1ShopDemoQAPage
+        taskADemoQAPage
                 .getAndPrintTitle()
                 .getPrintVerifyURL("https://shop.demoqa.com/")
                 .getLengthOfPageSource();

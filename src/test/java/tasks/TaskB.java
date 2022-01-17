@@ -1,6 +1,27 @@
 package tasks;
 
-public class TaskB {
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import pages.TaskBDemoQAPage;
+
+public class TaskB extends BaseTest {
+    TaskBDemoQAPage taskBDemoQAPage;
+
+    @BeforeMethod
+    public void setUp() {
+        taskBDemoQAPage = new TaskBDemoQAPage(getDriver());
+    }
+
+    @Test
+    public void backForwardCommandsTest() {
+        openURL("https://demoqa.com/");
+        taskBDemoQAPage
+                .openRegistration()
+                .backCommand()
+                .forwardCommand()
+                .navigateTo()
+                .refreshPage();
+    }
 }
 //B.
 //1. Launch new Browser

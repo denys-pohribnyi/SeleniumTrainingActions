@@ -1,6 +1,25 @@
 package tasks;
 
-public class TaskC {
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import pages.TaskCDemoQAPage;
+
+public class TaskC extends BaseTest {
+    TaskCDemoQAPage taskCDemoQAPage;
+
+    @BeforeMethod
+    public void setUp() {
+        taskCDemoQAPage = new TaskCDemoQAPage(getDriver());
+    }
+
+    @Test
+    public void waitersTest() {
+        openURL("https://demoqa.com/progress-bar");
+        taskCDemoQAPage
+                .startProgressBar()
+                .resetProgress()
+                .waitForStart();
+    }
 }
 //C.
 //1. Launch new Browser

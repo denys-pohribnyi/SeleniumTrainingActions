@@ -6,16 +6,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class Task1ShopDemoQAPage extends BasePage {
+public class TaskADemoQAPage extends BasePage {
     private final WebDriver driver;
 
     private final By loadingSpinner = By.xpath("//*[@id=\"rev_slider_4_1\"]/div[2]");
 
-    public Task1ShopDemoQAPage(WebDriver driver) {
+    public TaskADemoQAPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public Task1ShopDemoQAPage getAndPrintTitle() {
+    public TaskADemoQAPage getAndPrintTitle() {
         String title = driver.getTitle();
         int length = title.length();
         System.out.println("Title of this page is: " + title);
@@ -23,14 +23,14 @@ public class Task1ShopDemoQAPage extends BasePage {
         return this;
     }
 
-    public Task1ShopDemoQAPage getPrintVerifyURL(String url) {
+    public TaskADemoQAPage getPrintVerifyURL(String url) {
         String currentURL = driver.getCurrentUrl();
         System.out.println("Current URL of this page is: " + currentURL);
         Assert.assertEquals(currentURL, url);
         return this;
     }
 
-    public Task1ShopDemoQAPage getLengthOfPageSource() {
+    public TaskADemoQAPage getLengthOfPageSource() {
         WebDriverWait wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(loadingSpinner)));
         wait.until(ExpectedConditions.invisibilityOf(driver.findElement(loadingSpinner)));
