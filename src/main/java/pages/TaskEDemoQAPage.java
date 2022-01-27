@@ -14,7 +14,7 @@ public class TaskEDemoQAPage extends BasePage {
         driver.switchTo().frame("frame1");
 
         String frame1Text = driver.findElement(By.id("sampleHeading")).getText();
-        System.out.println(frame1Text);
+        System.out.println("Frame 1 text is: "+frame1Text);
         return this;
     }
 
@@ -26,7 +26,7 @@ public class TaskEDemoQAPage extends BasePage {
     public TaskEDemoQAPage switchingSecondFrame() {
         driver.switchTo().frame("frame2");
         String frame2Text = driver.findElement(By.id("sampleHeading")).getText();
-        System.out.println(frame2Text);
+        System.out.println("Frame 2 text is: "+frame2Text);
         return this;
     }
 }
