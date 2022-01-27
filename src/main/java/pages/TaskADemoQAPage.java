@@ -32,7 +32,7 @@ public class TaskADemoQAPage extends BasePage {
 
     public TaskADemoQAPage getLengthOfPageSource() {
         WebDriverWait wait = new WebDriverWait(driver, 5);
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(loadingSpinner)));
+        driver.findElement(loadingSpinner).isDisplayed();
         wait.until(ExpectedConditions.invisibilityOf(driver.findElement(loadingSpinner)));
 
         String pageSource = driver.getPageSource();
